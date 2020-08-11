@@ -33,8 +33,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Select a logging level
-#logger.setLevel(logging.INFO)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
+#logger.setLevel(logging.DEBUG)
 
 # select a server, default to local
 server = input('Server? local is default, "FTS" or "DISCORD" uses those public servers: ')
@@ -216,7 +216,7 @@ while True:
             logger.info("Geochat: " + this_uid)
 
         else:
-            logger.info("user: " + this_call + " uid: " + this_uid + " team: " + this_team)
+            logger.info("PLI:  " + this_call + " uid: " + this_uid + " team: " + this_team)
         
         try:
             #print("Looking for recipients")
@@ -266,7 +266,7 @@ while True:
     
     time.sleep(0.1)
     count += 1
-    if count > 5:
+    if count > 10:
         # Send a keep-alive
         logger.debug("Keep alive sent -----------------------------------------")
         takserver.send(mkcot.mkcot(cot_ping=True, cot_type="t", cot_how="m-g")) 

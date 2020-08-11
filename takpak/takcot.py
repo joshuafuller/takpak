@@ -176,10 +176,17 @@ class takcot():
                 #print("Looks valid")
                 #return cot_xml, frag
                 return cot_xml, cots[1]
+
+            elif cot_xml.startswith("<event"):
+                print("CoT Missing XML block:")
+                print(cot_xml)
+                return cot_xml, cots[1]
+
             else:
                 # Must have had an incomplete cot fragment
                 # Ignore the invalid CoT
-                print("Not a valid CoT")
+                print("Not a valid CoT:")
+                print(cot_xml)
                 return "", frag
 
         else:
